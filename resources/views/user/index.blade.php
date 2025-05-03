@@ -4,9 +4,6 @@
             {{ __('User') }}
         </h2>
     </x-slot>
-
-
-
     <div class="px-6 pt-6 pb-5 mb-6 md:w-1/2 2xl:w-1/3">
         @if (request('search'))
             <h2 class="pb-3 mb-4 text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">

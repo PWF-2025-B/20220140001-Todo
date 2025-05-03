@@ -30,7 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/todo/{todo}/complete', [TodoController::class, 'complete'])->name('todo.complete');
     Route::patch('/todo/{todo}/uncomplete', [TodoController::class, 'uncomplete'])->name('todo.uncomplete');
     Route::delete('/todo', [TodoController::class, 'destroyCompleted'])->name('todo.deleteallcompleted');
+});
 
+route::middleware(['auth','admin'])->group(function() {
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::get('/user/{id}', [UserController::class, 'show'])->name('users.show'); // Opsional tambahan
     Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
