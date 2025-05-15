@@ -26,5 +26,9 @@ class DatabaseSeeder extends Seeder
 
         User::factory(100)->create();
         Todo::factory(500)->create();
+
+        Category::factory(10)->create([
+            'user_id' => 1, // misal assign ke user id 1, bisa diganti sesuai user yang ada
+        ]);
     }
 }

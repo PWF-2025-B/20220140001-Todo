@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,8 +19,10 @@ class TodoFactory extends Factory
     {
         return [
             'user_id' => rand(1, 100),
-            'title' => ucwords(fake()->sentence()),
-            'is_done' => rand(0, 1),
+            'title' => ucwords($this->faker->sentence()),
+            'is_complete' => rand(0, 1), // sesuai model
+            // Membuat relasi category dengan random category id dari tabel categories
+            'category_id' => Category::inRandomOrder()->first()?->id ?? null,
         ];
     }
 }
